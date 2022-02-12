@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './style.css';
+import './styles.css';
 
 function Calendar() {
   
