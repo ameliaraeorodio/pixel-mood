@@ -1,7 +1,29 @@
-.Calander{
-
+.square{
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    outline: 1px solid rgba(144, 175, 175, 0.75);
+    display: inline-block;
+  
 }
-
-.Entry{
-    
+happy.square{
+    background-color:#ff8ce0;
+}
+calm.square{
+    background-color: #8cdcff;
+}
+angry.square{
+    background-color:  #ff2d2d;
+}
+surprised.square{
+    background-color: #ffc72D;
+}
+sadness.square{
+    background-color: #2d4bff;
+}
+disgust.square{
+    background-color: #0f851a;
+}
+fear.square{
+    background-color: #7832C1;
 }

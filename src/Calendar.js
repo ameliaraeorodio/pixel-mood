@@ -1,6 +1,6 @@
 import './Styles.css';
 
-entry = false
+var entry = false
 function Calendar() {
   const ROW_LENGTH = 31
   const COL_LENGTH = 12
@@ -9,7 +9,7 @@ function Calendar() {
   for (let row = 0; row < ROW_LENGTH; row++) {
     const currRow = [];
     for (let col = 0; col < COL_LENGTH; col++) {
-      currRow.push(newNode);
+      currRow.push(new Square(row, col));
     }
     grid.push(currRow);
   }
@@ -17,12 +17,12 @@ function Calendar() {
   return (
     <div className="Calendar">
        <div className="grid">
-          {grid.map((row, rowId) => {
+          {grid.map((row) => {
             return (
-              <div key={rowId}>
-                {row.map((square, squareId) => {
+              <div key={row.row}>
+                {row.map((square) => {
                   return (
-                    <div key = {squareId} className = "square" onClick= {Entry}></div>
+                    <div key = {square.col} className = "square" onClick= {Entry}></div>
                 );}
                 )}
               </div>
@@ -44,6 +44,15 @@ function Entry() {
       <textarea />
     </div>
   );
+}
+
+class Square
+{
+  constructor (row, col)
+  {
+    this.row = row
+    this.col = col
+  }
 }
 
 export default Calendar;
