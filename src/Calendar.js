@@ -16,7 +16,7 @@ function Calendar() {
 
   return (
     <div className="Calendar">
-       <div className="grid">
+       <div className="grid" id = "squares">
           {grid.map((row) => {
             return (
               <div className={"Row_" + row[0].row}>
@@ -33,38 +33,38 @@ function Calendar() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  let arr = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
-  let index = 1;
+    let arr = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+    let index = 1;
 
-  arr.forEach(month => {
-    let square = document.getElementById("0 " + index)
-    var tag = document.createElement("div")
-    tag.className = "container"
-    var text = document.createTextNode(month);
-    tag.appendChild(text)
-    square.appendChild(tag);
-    square.className = "labels"
-    index++;
-  })
-  
-  index = 0;
-  while(index < 33)
-  {
-    let square = document.getElementById(index + " 0")
-    if(index == 0)
-        square.className = "labels"
-    else{
+    arr.forEach(month => {
+      let square = document.getElementById("0 " + index)
       var tag = document.createElement("div")
-      tag.className = "container2"
-      var text = document.createTextNode(index);
+      tag.className = "container"
+      var text = document.createTextNode(month);
       tag.appendChild(text)
       square.appendChild(tag);
       square.className = "labels"
+      index++;
+    })
+    
+    index = 0;
+    while(index < 33)
+    {
+      let square = document.getElementById(index + " 0")
+      if(index == 0)
+          square.className = "labels"
+      else{
+        var tag = document.createElement("div")
+        tag.className = "container2"
+        var text = document.createTextNode(index);
+        tag.appendChild(text)
+        square.appendChild(tag);
+        square.className = "labels"
+      }
+      index++;
     }
-    index++;
-  }
-
 }, false);
+
 function Entry() {
   entry = true
   return (
