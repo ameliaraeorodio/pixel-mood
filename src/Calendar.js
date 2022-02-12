@@ -43,7 +43,7 @@ function Calendar() {
   else {
     return (
       <div className="App">
-        <button onClick={() => setEntry(entry - 1)}>Back</button>
+        <button class = "button" onClick={() => setEntry(entry - 1)}>Back</button>
         <br />
         How are you feeling today?
         <br />
@@ -103,6 +103,7 @@ function Calendar() {
         <div className="journalEntry">Journal Entry</div>
         <textarea />
         <div className="spacing"/>
+        <button class = "button" onClick={() => setEntry(entry - 1)}>Submit</button>
         <footer>
           HopperHacks 2022
           <br />
