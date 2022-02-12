@@ -1,6 +1,6 @@
 import './Styles.css';
 
-var entry = false
+var entry = false;
 function Calendar() {
   const ROW_LENGTH = 31
   const COL_LENGTH = 12
@@ -32,7 +32,6 @@ function Calendar() {
   );
 }
 
-
 function Entry() {
   entry = true
   return (
@@ -56,5 +55,3 @@ class Square
 }
 
 export default Calendar;
-
-
