@@ -1,6 +1,7 @@
 import './Styles.css';
+import Entry from './Entry';
 
-function Calander() {
+function Calendar() {
   const ROW_LENGTH = 31
   const COL_LENGTH = 12
 
@@ -14,10 +15,27 @@ function Calander() {
   }
 
   return (
-    <div className="Calander">
-       
+    <div className="Calendar">
+       <div className="grid">
+          {grid.map((row, rowId) => {
+            return (
+              <div key={rowId}>
+                {row.map((square, squareId) => {
+                  return (
+                    <div key = {squareId} onClick= {click_entry}></div>
+                );}
+                )}
+              </div>
+            )})}
+        </div>
     </div>
   );
 }
 
-export default Calander;
+function click_entry()
+{
+
+}
+export default Calendar;
+
+
