@@ -1,6 +1,6 @@
 import './Styles.css';
-import Entry from './Entry';
 
+entry = false
 function Calendar() {
   const ROW_LENGTH = 31
   const COL_LENGTH = 12
@@ -22,7 +22,7 @@ function Calendar() {
               <div key={rowId}>
                 {row.map((square, squareId) => {
                   return (
-                    <div key = {squareId} onClick= {click_entry}></div>
+                    <div key = {squareId} className = "square" onClick= {Entry}></div>
                 );}
                 )}
               </div>
@@ -32,10 +32,20 @@ function Calendar() {
   );
 }
 
-function click_entry()
-{
 
+function Entry() {
+  entry = true
+  return (
+    <div className="App">
+      whee
+      How are you feeling today?
+      <br />
+      <br />
+      <textarea />
+    </div>
+  );
 }
+
 export default Calendar;
 
 
