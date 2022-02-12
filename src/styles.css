@@ -5,23 +5,49 @@
     outline: 1px solid rgba(144, 175, 175, 0.75);
     display: inline-block;
     position: relative;
-    padding-bottom: 5%
-}
-.grid{
-    font-size: 0;
-}
-.title{
-    font-family: 'Concert One', cursive;
-    font-size: 48px;
-    text-align: center;
-    color:cornflowerblue;
+    padding-bottom: 5%;
 }
 body{
     text-align: center;
 }
-blocked.square{
-    background-color: rgba(144, 175, 175, 0.75);
+
+.labels{
+    width: 5vw;
+    height: 0px;
+    background-color: white;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 5%;
 }
+
+.grid{
+    font-size: 0;
+}
+.container{
+    position:absolute;
+    bottom:0px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    font-size: 15px;
+}
+
+.container2{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-size: 15px;
+    left: 50%
+}
+
+.title {
+    font-family: 'Concert One', cursive;
+    font-size: 48px;
+    text-align: center;
+    color:cornflowerblue;
+  }
 happy.square{
     background-color:#ff8ce0;
 }
@@ -29,7 +55,7 @@ calm.square{
     background-color: #8cdcff;
 }
 angry.square{
-    background-color:  #ff2d2d;
+    background-color: #ff2d2d;
 }
 surprised.square{
     background-color: #ffc72D;
