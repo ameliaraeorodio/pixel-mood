@@ -1,7 +1,10 @@
 function Entry() {
     return (
       <div className="App">
-        whee
+        How are you feeling today?
+        <br />
+        <br />
+        <textarea />
       </div>
     );
   }
