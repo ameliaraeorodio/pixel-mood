@@ -6,6 +6,9 @@
     display: inline-block;
   
 }
+body{
+    text-align: center;
+}
 happy.square{
     background-color:#ff8ce0;
 }
