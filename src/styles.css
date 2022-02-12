@@ -1,13 +1,26 @@
 .square{
-    width: 20px;
-    height: 20px;
+    width: 5vw;
+    height: 0px;
     background-color: white;
     outline: 1px solid rgba(144, 175, 175, 0.75);
     display: inline-block;
-  
+    position: relative;
+    padding-bottom: 5%
+}
+.grid{
+    font-size: 0;
+}
+.title{
+    font-family: 'Concert One', cursive;
+    font-size: 48px;
+    text-align: center;
+    color:cornflowerblue;
 }
 body{
     text-align: center;
+}
+blocked.square{
+    background-color: rgba(144, 175, 175, 0.75);
 }
 happy.square{
     background-color:#ff8ce0;
