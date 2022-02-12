@@ -11,14 +11,13 @@ body {
     font-size: 48px;
     text-align: center;
     color:cornflowerblue;
-  }
+}
 .square{
     width: 20px;
     height: 20px;
     background-color: white;
     outline: 1px solid rgba(144, 175, 175, 0.75);
     display: inline-block;
-  
 }
 happy.square{
     background-color:#ff8ce0;
