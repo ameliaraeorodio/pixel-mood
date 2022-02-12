@@ -1,3 +1,14 @@
+.grid {
+    text-align: center;
+    font-size: 0;
+}
+
+.title {
+    font-family: 'Concert One', cursive;
+    font-size: 48px;
+    text-align: center;
+    color:cornflowerblue;
+}
 .square{
     width: 5vw;
     height: 0px;
@@ -5,39 +16,81 @@
     outline: 1px solid rgba(144, 175, 175, 0.75);
     display: inline-block;
     position: relative;
-    padding-bottom: 5%
-  
+    padding-bottom: 5%;
 }
-body{
+
+.square:hover {
+    outline: 1px solid red;
+}
+
+.App {
     text-align: center;
 }
-happy.square{
-    background-color:#ff8ce0;
+
+ul {
+    list-style: none;
+    font-weight: bold;
 }
-calm.square{
-    background-color: #8cdcff;
+
+img {
+    width: 50px;
+    height: 50px;
 }
-angry.square{
-    background-color: #ff2d2d;
+
+li {
+    display: inline-block;
+    float: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
-surprised.square{
-    background-color: #ffc72D;
+
+li:hover {
+    background-color: #f5e7e7;
 }
-sadness.square{
-    background-color: #2d4bff;
+
+.journalEntry {
+    font-weight: bold;
 }
-disgust.square{
-    background-color: #0f851a;
+
+textarea {
+    outline: none;
+    resize: none;
+    width: 600px;
+    height: 100px;
 }
-fear.square{
-    background-color: #7832C1;
+
+.spacing {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
-sleepy.square{
-    background-color: #6f88ba;
+footer {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #ececec;
 }
-excited.square{
-    background-color: #ff8731;
-}
-drained.square{
-    background-color: #8964a0;
-}
+
+/* Colors */
+#happy{color: #ff8ce0;}
+#calm{color: #8cdcff;}
+#angry{color: #ff2d2d;}
+#surprised{color: #ffc72D;}
+#sadness{color: #2d4bff;}
+#disgust{color: #0f851a;}
+#fear{color:#7832C1;}
+#sleepy{color: #6f88ba;}
+#excited{color:#ff8731;}
+#drained{color:#8964a0;}
+happy.square{background-color:#ff8ce0;}
+calm.square{background-color: #8cdcff;}
+angry.square{background-color: #ff2d2d;}
+surprised.square{background-color: #ffc72D;}
+sadness.square{background-color: #2d4bff;}
+disgust.square{background-color: #0f851a;}
+fear.square{background-color: #7832C1;}
+sleepy.square{background-color: #6f88ba;}
+excited.square{background-color: #ff8731;}
+drained.square{background-color: #8964a0;}
