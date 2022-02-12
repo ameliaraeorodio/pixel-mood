@@ -1,17 +1,3 @@
-body {
-    text-align: center;
-}
-
-.grid {
-    font-size: 0;
-}
-
-.title {
-    font-family: 'Concert One', cursive;
-    font-size: 48px;
-    text-align: center;
-    color:cornflowerblue;
-}
 .square{
     width: 5vw;
     height: 0px;
