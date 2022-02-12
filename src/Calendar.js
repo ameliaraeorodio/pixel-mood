@@ -1,4 +1,4 @@
-import './Styles.css';
+import './styles.css';
 
 var entry = false;
 function Calendar() {
