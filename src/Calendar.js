@@ -10,8 +10,8 @@ function Calendar() {
 
   const ROW_LENGTH = 32
   const COL_LENGTH = 13
+  const grid = []
 
-  const grid = [];
   for (let row = 0; row < ROW_LENGTH; row++) {
     const currRow = [];
     for (let col = 0; col < COL_LENGTH; col++) {
@@ -42,17 +42,18 @@ function Calendar() {
             Created by Amelia Rae Orodio, Juan Ospina, Jared Tjahjadi
         </footer>
       </div>
+      
     );
   }
   else {
     return (
       <div className="App">
-        <button class = "button" onClick={() => setEntry(entry - 1)}>Back</button>
+        <button id = "exit" class = "button" onClick={() => setEntry(entry - 1)}>Back</button>
         <br />
         How are you feeling today?
         <br />
         <ul className="feelings">
-          <li id="happy" onclick = "addOutline(this)">
+          <li id="happy">
             <img alt='Happy' src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/grinning-face_1f600.png'} />
             <br />
             Happy
@@ -77,7 +78,7 @@ function Calendar() {
             <br />
             Sadness
           </li>
-          <li id="disgust">
+          <li id="disgust" >
             <img alt='' src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/nauseated-face_1f922.png'} />
             <br />
             Disgust
@@ -87,7 +88,7 @@ function Calendar() {
             <br />
             Fear
           </li>
-          <li id="sleepy">
+          <li id="sleepy" >
             <img alt='' src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/sleepy-face_1f62a.png'} />
             <br />
             Sleepy
@@ -107,7 +108,7 @@ function Calendar() {
         <div className="journalEntry">Journal Entry</div>
         <textarea />
         <div className="spacing"/>
-        <button class = "button" onClick={() => setEntry(entry - 1)}>Submit</button>
+        <button id = "exit" class = "button" onClick={() => setEntry(entry - 1)}>Submit</button>
         <footer>
           HopperHacks 2022
           <br />
@@ -118,10 +119,22 @@ function Calendar() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function(){
+  load_labels()
+  document.getElementById("exit").addEventListener("click", load_labels)
+})
+
+document.addEventListener("click", someListener)
+function someListener(event){
+  var element = event.target;
+  if(element.id == "exit"){
+      load_labels()
+  }
+}
+
+function load_labels(){
   let arr = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
   let index = 1;
-
   arr.forEach(month => {
     let square = document.getElementById("0 " + index)
     var tag = document.createElement("div")
@@ -141,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
         square.className = "labels"
     else{
       var tag = document.createElement("div")
-      tag.className = "container2"
+      tag.className = "container"
       var text = document.createTextNode(index);
       tag.appendChild(text)
       square.appendChild(tag);
@@ -149,9 +162,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     index++;
   }
-
-}, false);
-
+    index = 0;
+    while(index < 33)
+    {
+      let square = document.getElementById(index + " 0")
+      if(index == 0)
+          square.className = "labels"
+      else{
+        var tag = document.createElement("div")
+        tag.className = "container2"
+        var text = document.createTextNode(index);
+        tag.appendChild(text)
+        square.appendChild(tag);
+        square.className = "labels"
+      }
+      index++;
+    }
+}
 class Square
 {
   constructor (row, col)
