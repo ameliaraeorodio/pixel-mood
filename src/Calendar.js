@@ -6,8 +6,12 @@ function Calendar() {
 
   const ROW_LENGTH = 32
   const COL_LENGTH = 13
+  const grid = []
 
-  const grid = [];
+  /*if(localStorage.getItem("data") != null)
+    grid = JSON.parse(localStorage.getItem("names"));*/
+
+
   for (let row = 0; row < ROW_LENGTH; row++) {
     const currRow = [];
     for (let col = 0; col < COL_LENGTH; col++) {
@@ -38,12 +42,13 @@ function Calendar() {
             Created by Amelia Rae Orodio, Juan Ospina, Jared Tjahjadi
         </footer>
       </div>
+      
     );
   }
   else {
     return (
       <div className="App">
-        <button onClick={() => setEntry(entry - 1)}>Back</button>
+        <button class = "exit" onClick={() => setEntry(entry - 1)}>Back</button>
         <br />
         How are you feeling today?
         <br />
@@ -113,10 +118,23 @@ function Calendar() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    let arr = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
-    let index = 1;
+document.addEventListener('DOMContentLoaded', function(){
+  load_labels()
+  document.getElementById("exit").addEventListener("click", load_labels)
+})
 
+document.addEventListener("click", someListener)
+function someListener(event){
+  var element = event.target;
+  alert(element.className)
+  if(element.className == "exit"){
+      load_labels()
+  }
+}
+
+function load_labels(){
+  let arr = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+  let index = 1;
   arr.forEach(month => {
     let square = document.getElementById("0 " + index)
     var tag = document.createElement("div")
@@ -160,8 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       index++;
     }
-  }, false);
-
+}
 class Square
 {
   constructor (row, col)
