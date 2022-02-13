@@ -5,7 +5,7 @@ function Calendar() {
   const date = new Date();
   const month = date.getMonth;
   const day = date.getDate;
-  
+
   const [entry, setEntry] = React.useState(0);
 
   const ROW_LENGTH = 32
@@ -52,9 +52,9 @@ function Calendar() {
         <br />
         How are you feeling today?
         <br />
-        <ul className="feelings">
+        <ul className="feelings" id = "emotions">
           <li id="happy">
-            <img alt='Happy' src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/grinning-face_1f600.png'} />
+            <img alt='Happy' src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/grinning-face_1f600.png' } />
             <br />
             Happy
           </li>

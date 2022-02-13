@@ -72,6 +72,8 @@ ul {
 img {
     width: 50px;
     height: 50px;
+    border: solid 1px red;
+    margin: 10px;
 }
 
 li {
@@ -82,12 +84,14 @@ li {
     padding-top: 5px;
     padding-bottom: 5px;
 }
-
+li::selection{
+    border: solid 1px red;
+    margin:10px;
+}
 li:hover {
     background-color: #f5e7e7;
     transition: 0.5s;
 }
-
 .journalEntry {
     font-weight: bold;
 }
