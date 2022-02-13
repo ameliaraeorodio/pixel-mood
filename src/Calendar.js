@@ -53,7 +53,7 @@ function Calendar() {
         How are you feeling today?
         <br />
         <ul className="feelings" id = "emotions">
-          <li id="feelings1" onClick = {}>
+          <li id="feelings1">
             <img alt='Happy' src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/grinning-face_1f600.png' } />
             <br />
             Happy
