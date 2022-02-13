@@ -29,7 +29,9 @@
 .square:hover {
     outline: 1px solid red;
 }
-
+.square:active{
+    outline: 1px solid red;
+}
 .App {
     text-align: center;
 }
@@ -108,6 +110,7 @@ footer {
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: #ececec;
+    margin-top:auto;
 }
 
 /* Colors */
