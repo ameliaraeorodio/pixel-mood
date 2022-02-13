@@ -27,10 +27,8 @@
 }
 
 .square:hover {
-    outline: 1px solid red;
-}
-.square:active{
-    outline: 1px solid red;
+    color: darken(#232c88,5%);
+    border: 2px solid #232c88;
 }
 .App {
     text-align: center;
@@ -87,6 +85,7 @@ li {
 
 li:hover {
     background-color: #f5e7e7;
+    transition: 0.5s;
 }
 
 .journalEntry {

@@ -2,6 +2,10 @@ import React from 'react';
 import './styles.css';
 
 function Calendar() {
+  const date = new Date();
+  const month = date.getMonth;
+  const day = date.getDate;
+  
   const [entry, setEntry] = React.useState(0);
 
   const ROW_LENGTH = 32
@@ -48,7 +52,7 @@ function Calendar() {
         How are you feeling today?
         <br />
         <ul className="feelings">
-          <li id="happy">
+          <li id="happy" onclick = "addOutline(this)">
             <img alt='Happy' src={'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/285/grinning-face_1f600.png'} />
             <br />
             Happy
