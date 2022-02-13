@@ -1,20 +1,32 @@
 import React from 'react';
 import './styles.css';
 
+let grid = []
+let curr_open = ""
 function Calendar() {
   const [entry, setEntry] = React.useState(0);
 
   const ROW_LENGTH = 32
   const COL_LENGTH = 13
-  const grid = []
+  
 
-  if(localStorage.getItem("data") != null)
-    grid = JSON.parse(localStorage.getItem("names"));
+  if(localStorage.getItem("data") != null){
+    let arr = JSON.parse(localStorage.getItem("names"));
+    for (let row = 0; row < ROW_LENGTH; row++) {
+      const currRow = arr[row];
+      const gridcurrRow = []
+      for (let col = 0; col < COL_LENGTH; col++) {
+        const currCol = currRow[col]
+        gridcurrRow.push(new Square(currCol));
+      }
+      grid.push(currRow);
+    }
+  }
   else{
     for (let row = 0; row < ROW_LENGTH; row++) {
       const currRow = [];
       for (let col = 0; col < COL_LENGTH; col++) {
-        currRow.push(new Square(row, col, "none"));
+        currRow.push(new Square([row, col, "none", "no entry"]));
       }
       grid.push(currRow);
     }
@@ -130,8 +142,14 @@ function someListener(event){
   }
   else if(element.className = "square")
   {
-
+    let str = element.id
+    let index = str.split(" ")
+    curr_open = (grid[index[0]][index[1]], element)
   }
+  /*else if(element.id == "Happy")
+  {
+    curr_open = 
+  }*/
   //if(element.id)
 }
 
@@ -184,10 +202,22 @@ function load_labels(){
 }
 class Square
 {
-  constructor (row, col, color)
+  constructor (arr)
   {
-    this.row = row
-    this.col = col
+    this.row = arr[0]
+    this.col = arr[1]
+    this.color = arr[2]
+    this.entry = arr[3]
+  }
+
+  setColor(color)
+  {
+    this.color = color
+  }
+
+  setEntry(entry)
+  {
+    this.entry = entry
   }
 }
 
