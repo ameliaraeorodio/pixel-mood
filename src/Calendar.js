@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 let grid = []
-let curr_open = ""
+let curr_open = "none"
 function Calendar() {
   const [entry, setEntry] = React.useState(0);
 
@@ -17,19 +17,20 @@ function Calendar() {
       const gridcurrRow = []
       for (let col = 0; col < COL_LENGTH; col++) {
         const currCol = currRow[col]
-        gridcurrRow.push(new Square(currCol));
+        gridcurrRow[col] = new Square(currCol);
       }
-      grid.push(currRow);
+      grid[row] = currRow;
     }
   }
   else{
     for (let row = 0; row < ROW_LENGTH; row++) {
       const currRow = [];
       for (let col = 0; col < COL_LENGTH; col++) {
-        currRow.push(new Square([row, col, "none", "no entry"]));
+        currRow[col] = (new Square([row, col, "none", "no entry"]));
       }
-      grid.push(currRow);
+      grid[row] = currRow;
     }
+
   }
   if(entry === 0) {
     return (
@@ -118,6 +119,7 @@ function Calendar() {
         <br />
         <div className="journalEntry">Journal Entry</div>
         <textarea />
+        <button id = "submit" onClick={() => setEntry(entry - 1)}>Submit</button>
         <div className="spacing"/>
         <footer>
           HopperHacks 2022
@@ -139,18 +141,59 @@ function someListener(event){
   var element = event.target;
   if(element.id == "exit"){
       load_labels()
+      if(curr_open != "none")
+        curr_open = "none"
   }
   else if(element.className = "square")
   {
     let str = element.id
     let index = str.split(" ")
-    curr_open = (grid[index[0]][index[1]], element)
+    curr_open = grid[index[0]][index[1]]
   }
-  /*else if(element.id == "Happy")
+  else if(element.id == "happy")
+    curr_open.color = "#ff8ce0"
+  else if(element.id == "calm")
+    curr_open.color = "#8cdcff"
+  else if(element.id == "angry")
+    curr_open.color = "#ff2d2d"
+  else if(element.id == "surprised")
+    curr_open.color = "#ffc72D"  
+  else if(element.id == "sadness")
+    curr_open.color = "#2d4bff"
+  else if(element.id == "disgust")
+    curr_open.color = "#0f851a"
+  else if(element.id == "fear")
+    curr_open.color = "#7832C1"
+  else if(element.id == "sleepy")
+    curr_open.color = "#6f88ba"
+  else if(element.id == "excited")
+    curr_open.color = "#ff8731"
+  else if(element.id == "drained")
+    curr_open.color = "#8964a0"
+  else if(element.id == "submit")
   {
-    curr_open = 
-  }*/
-  //if(element.id)
+    curr_open.entry = document.getElementById("submit").value
+    load_labels()
+    curr_open = "none"
+    grid_save()
+  }
+  
+}
+
+function grid_save()
+{
+  let twoD_grid = []
+  for (let row = 0; row < 32; row++) 
+  {
+    const currRow = [];
+    for (let col = 0; col < 13; col++) 
+    {
+      currRow[col] = grid[row][col].getArr();
+    }
+    twoD_grid[row] = currRow;
+  }
+
+  localStorage.setItem("data", JSON.stringify(twoD_grid))
 }
 
 function load_labels(){
@@ -209,15 +252,10 @@ class Square
     this.color = arr[2]
     this.entry = arr[3]
   }
-
-  setColor(color)
+  
+  getArr()
   {
-    this.color = color
-  }
-
-  setEntry(entry)
-  {
-    this.entry = entry
+    return [this.row, this.col, this.color, this.entry]
   }
 }
 
